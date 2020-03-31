@@ -1,0 +1,33 @@
+// Behaves like `.reverse()` in JS applied to SCSS lists.
+@function reverse-list($list) {
+  $list-separator: list-separator($list);
+  $reversed-list: ();
+
+  @for $i from length($list) through 1 {
+    $reversed-list: append($reversed-list, nth($list, $i), $separator: $list-separator);
+  }
+
+  @return $reversed-list;
+}
+
+// Behaves like `.splice()` in JS applied to SCSS lists.
+@function splice-list($list, $start: 1, $end: length($list)) {
+  $list-separator: list-separator($list);
+  $spliced-list: ();
+
+  @for $i from $start through $end {
+    $spliced-list: append($spliced-list, nth($list, $i), $separator: $list-separator);
+  }
+
+  @return $spliced-list;
+}
+
+// Prevents default hsl function to convert colors into HEX format.
+@function hsl($h, $s, $l) {
+  @return unquote("hsl(#{$h}, #{$s}, #{$l})");
+}
+
+// Prevents default hsla function to convert colors into HEX format.
+@function hsla($h, $s, $l, $a: 1) {
+  @return unquote("hsla(#{$h}, #{$s}, #{$l}, #{$a})");
+}

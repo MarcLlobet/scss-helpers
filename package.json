@@ -1,0 +1,32 @@
+{
+  "name": "scss-helpers",
+  "version": "1.0.0",
+  "description": "This repo aims to  - avoid rewriting same functions in each project - have handy functions to work easier with scss - add features that scss hasn't",
+  "main": "index.scss",
+  "scripts": {
+    "fix": "prettier '**/*.{css,scss}' --write && stylelint '**/*.{css,scss}' --fix",
+    "lint": "stylelint '**/*.{css,scss}' && prettier --check '**/*.{css,scss}'",
+    "compile": "node ./node-sass.js",
+    "start": "npm run fix && npm run lint && npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcLlobet/scss-helpers.git"
+  },
+  "author": "https://github.com/MarcLlobet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcLlobet/scss-helpers/issues"
+  },
+  "homepage": "https://github.com/MarcLlobet/scss-helpers#readme",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "prettier": "2.0.2",
+    "stylelint": "^13.2.1",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-csstree-validator": "^1.8.0"
+  }
+}
